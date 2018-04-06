@@ -1,0 +1,141 @@
+.main-grid-container {
+    display: grid;
+    grid-template-columns: auto;
+}
+
+@media screen and (min-width: 1280px) {
+    .repo-grid-container {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        grid-gap: 10px 10px;
+        margin: 10px;
+    }
+}
+
+@media screen and (min-width: 960px) and (max-width: 1279px) {
+    .repo-grid-container {
+        display: grid;
+        grid-template-columns: auto auto auto ;
+        grid-gap: 10px 10px;
+        margin: 10px;
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width: 959px) {
+    .repo-grid-container {
+        display: grid;
+        grid-template-columns: auto auto ;
+        grid-gap: 10px 10px;
+        margin: 10px;
+    }
+}
+
+@media screen and (max-width: 599px) {
+    .repo-grid-container {
+        display: grid;
+        grid-template-columns: auto;
+        grid-gap: 10px 10px;
+        margin: 10px;
+    }
+}
+
+.repo-grid-content {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    border-bottom: black;
+    background-color: white;
+    box-shadow: 1px 1px 1px 1px black;
+    word-wrap: break-word;
+    border-radius: 10px;
+}
+
+.repo-grid-content .not-found {
+    text-align: center;
+    margin: 20px;
+}
+
+.text-content {
+    margin: 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+@media screen and (min-width: 600px) {
+    .filter {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+@media screen and (max-width: 599px) {
+    .filter {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.filter {
+    margin: 10px;
+}
+
+.filter > span {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 10px
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.flex-container > span {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+}
+
+input {
+    padding: 8px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    margin: 5px;
+}
+
+button {
+    border: black;
+    cursor: pointer;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 2px;
+    font-size: 15px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, .4);
+    background: #64b5f6;
+    margin: 0 5px 0 5px;
+}
+
+button:disabled {
+    background-color: lightgrey;
+}
+
+input:focus {
+    outline-style: none;
+}
+
+.nav-header {
+    display: flex;
+    flex-direction: column;
+    background-color: #64b5f6;
+    box-shadow: 1px 1px 1px 1px black;
+
+}
+
+.centered {
+    align-self: center;
+}

@@ -1,0 +1,53 @@
+<section class="main-grid-container">
+  <header class="grid-content">
+    <nav class="nav-header">
+      <span class="centered">
+        <h1>My Git Feed</h1>
+      </span>
+    </nav>
+  </header>
+  <div class="filter">
+    <span>
+      <input type="text" placeholder="Filter by Owner" #owner (input)="filter($event.target.value, desc.value)">
+    </span>
+    <span>
+      <button (click)="sortByName()" [disabled]="!showPage">Sort by Repo Date</button>
+    </span>
+    <span>
+      <button (click)="showInPage()"  [disabled]="showPage">Show by Page</button>
+    </span>
+    <span>
+      <input type="text" placeholder="Filter by Description" #desc (input)="filter(owner.value,$event.target.value)">
+    </span>
+  </div>
+  <main class="grid-content">
+    <div class="repo-grid-container">
+      <ng-container *ngIf="repoList | async as repoArray; else loading">
+        <div class="repo-grid-content" *ngFor="let repo of repoArray">
+          <div class="text-content">
+            <h3>Name : {{ repo.owner.login }}</h3>
+            <p>Description : {{ repo.description | checkDesc }}</p>
+            <p>Date : {{ repo.updated_at | date:'dd/mm/yyyy' }}</p>
+            <span>Link : <a href="{{repo.html_url}}">{{ repo.html_url }}</a></span>
+          </div>
+        </div>
+        <ng-container *ngIf="(repoArray)?.length==0">
+            <div class="repo-grid-content">
+                <div class="text-content"><span>No Entries Found</span></div>
+              </div>
+        </ng-container>
+      </ng-container>
+      <ng-template #loading class="flex-container">
+        <span>
+          <img src="assets/3.gif" alt="loading">
+        </span>
+      </ng-template>
+    </div>
+    <hr>
+    <div class="filter">
+      <span><button (click)="paginate(0)" [disabled]="!showPage">Back</button></span>
+      <span><input type="number" min="1" [(ngModel)]="_pageLimit" placeholder="Set items per page Limit"></span>
+      <span><button (click)="paginate(1)" [disabled]="!showPage">Next</button></span>
+    </div>
+  </main>
+</section>
