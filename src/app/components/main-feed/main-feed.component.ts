@@ -81,7 +81,7 @@ export class MainFeedComponent implements OnInit, OnDestroy {
     }
   }
 
-  sortByName() {
+  sortByDate() {
     try {
       // disbaling pagination
       this.showPage = false;
@@ -91,6 +91,9 @@ export class MainFeedComponent implements OnInit, OnDestroy {
 
         const dateA = a.updated_at;
         const dateB = b.updated_at;
+        console.log(dateA);
+        console.log(dateB);
+
         if (dateA < dateB) {
           return -1;
         }
@@ -100,7 +103,12 @@ export class MainFeedComponent implements OnInit, OnDestroy {
 
         // if dates are equal
         return 0;
-      }));
+      })).map(repoList => {
+        repoList.forEach((value, index, array) => {
+          array[index].updated_at = new Date(value.updated_at);
+        });
+        return repoList;
+      });
     } catch {
       console.log('Error in Sorting');
     }

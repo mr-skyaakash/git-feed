@@ -11,7 +11,7 @@
       <input type="text" placeholder="Filter by Owner" #owner (input)="filter($event.target.value, desc.value)">
     </span>
     <span>
-      <button (click)="sortByName()" [disabled]="!showPage">Sort by Repo Date</button>
+      <button (click)="sortByDate()" [disabled]="!showPage">Sort by Repo Date</button>
     </span>
     <span>
       <button (click)="showInPage()"  [disabled]="showPage">Show by Page</button>
